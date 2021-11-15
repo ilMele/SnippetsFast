@@ -10,11 +10,11 @@ namespace SnippetsFast
     {
         private string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Snippetsfast";
 
-        public Dictionary<string, string> Files { get; set; }
+        public Dictionary<string, List<string>> Files { get; set; }
 
         public SLoader()
         {
-            Files = new Dictionary<string, string>();
+            Files = new Dictionary<string, List<string>>();
 
             if (!Directory.Exists(folderPath))
             {
@@ -28,11 +28,15 @@ namespace SnippetsFast
         {
             string[] ds = Directory.GetDirectories(folderPath);
 
-            foreach(string d in ds)
+            foreach(string d in ds) 
             {
                 foreach(string f in Directory.GetFiles(d))
                 {
-                    Files.Add(d, Path.GetFileName(f));
+                    string dirname = Path.GetFileName(d);
+                    if (!Files.ContainsKey(dirname)){
+                        Files.Add(dirname, new List<string>());
+                    }
+                    Files[dirname].Add(f);
                 }
             }
         }

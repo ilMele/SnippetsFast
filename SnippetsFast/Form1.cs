@@ -19,16 +19,19 @@ namespace SnippetsFast
         {
             if (textBox1.Text.Length < 3) { return; }
 
-            foreach (KeyValuePair<string, string> s in sl.Files)
+            foreach (KeyValuePair<string, List<string>> d in sl.Files)
             {
-                if (s.Value.Contains(textBox1.Text))
+                foreach(string s in d.Value)
                 {
-                    Snippet sn = new(Path.GetFileName(s.Key), s.Value, s.Key + $"\\{s.Value}");
-                    flowLayoutPanel1.Controls.Add(sn);
-                    if (!snSelected)
+                    if (s.Contains(textBox1.Text))
                     {
-                        selected = sn;
-                        snSelected = true;
+                        Snippet sn = new(d.Key, Path.GetFileName(s), s);
+                        flowLayoutPanel1.Controls.Add(sn);
+                        if (!snSelected)
+                        {
+                            selected = sn;
+                            snSelected = true;
+                        }
                     }
                 }
             }
