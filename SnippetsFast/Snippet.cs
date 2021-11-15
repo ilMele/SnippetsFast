@@ -12,7 +12,13 @@ namespace SnippetsFast
 {
     public partial class Snippet : UserControl
     {
-        protected string SnpPath;
+        public string SnpPath { get; set; }
+
+        public Snippet()
+        {
+            SnpPath = "";
+        }
+
         public Snippet(string env, string name, string snpPath)
         {
             InitializeComponent();
