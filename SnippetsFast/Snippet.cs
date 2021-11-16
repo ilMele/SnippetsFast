@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//icons site: https://www.flaticon.com/
+
 namespace SnippetsFast
 {
     public partial class Snippet : UserControl

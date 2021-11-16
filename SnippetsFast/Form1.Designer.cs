@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.SuspendLayout();
             // 
             // textBox1
@@ -63,6 +65,13 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(377, 462);
             this.flowLayoutPanel1.TabIndex = 3;
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.notifyIcon1.Text = "SnippetFast";
+            this.notifyIcon1.Visible = true;
+            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_DoubleClick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -73,8 +82,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Deactivate += new System.EventHandler(this.FormOnDeactivate);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -85,5 +96,6 @@
         private TextBox textBox1;
         private Label label1;
         private FlowLayoutPanel flowLayoutPanel1;
+        private NotifyIcon notifyIcon1;
     }
 }

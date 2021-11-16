@@ -34,7 +34,6 @@
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.envsnp = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
@@ -67,20 +66,11 @@
             this.envsnp.TabIndex = 4;
             this.envsnp.Text = "env";
             // 
-            // panel2
-            // 
-            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel2.Location = new System.Drawing.Point(332, 11);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(33, 33);
-            this.panel2.TabIndex = 5;
-            // 
             // panel3
             // 
             this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel3.Location = new System.Drawing.Point(291, 11);
+            this.panel3.Location = new System.Drawing.Point(334, 12);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(33, 33);
             this.panel3.TabIndex = 6;
@@ -91,7 +81,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.envsnp);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.namesnp);
@@ -109,7 +98,6 @@
         private BindingSource bindingSource1;
         private Panel panel1;
         private Label envsnp;
-        private Panel panel2;
         private Panel panel3;
     }
 }

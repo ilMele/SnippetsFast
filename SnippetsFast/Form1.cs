@@ -1,3 +1,5 @@
+//icons: https://www.flaticon.com/
+
 namespace SnippetsFast
 {
     public partial class Form1 : Form
@@ -13,6 +15,8 @@ namespace SnippetsFast
             selected = new Snippet();
 
             sl = new SLoader();
+
+            notifyIcon1.Icon = Icon;
         }
 
         public void search()
@@ -49,7 +53,19 @@ namespace SnippetsFast
             if(e.KeyChar == (char)13)
             {
                 Clipboard.SetText(File.ReadAllText(selected.SnpPath));
+                this.Hide();
             }
+        }
+
+        private void FormOnDeactivate(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void notifyIcon1_DoubleClick(object sender, MouseEventArgs e)
+        {
+            this.Show();
+            this.Activate();
         }
     }
 }
