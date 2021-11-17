@@ -54,7 +54,7 @@ namespace SnippetsFast
             {
                 Clipboard.SetText(System.IO.File.ReadAllText(selected.SnpPath));
                 this.Hide();
-                SendKeys.SendWait("^v");
+                //SendKeys.SendWait("^v");
             }
         }
 
