@@ -33,11 +33,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.ListFolderFiles = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.envName = new System.Windows.Forms.Label();
             this.title_snippet = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.richText = new System.Windows.Forms.RichTextBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -83,7 +86,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.panel2.Controls.Add(this.title_snippet);
+            this.panel2.Controls.Add(this.tableLayoutPanel1);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.richText);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -93,14 +96,27 @@
             this.panel2.Size = new System.Drawing.Size(900, 813);
             this.panel2.TabIndex = 1;
             // 
+            // envName
+            // 
+            this.envName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.envName.AutoSize = true;
+            this.envName.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.envName.ForeColor = System.Drawing.Color.Gainsboro;
+            this.envName.Location = new System.Drawing.Point(840, 9);
+            this.envName.Name = "envName";
+            this.envName.Size = new System.Drawing.Size(32, 20);
+            this.envName.TabIndex = 5;
+            this.envName.Text = "env";
+            // 
             // title_snippet
             // 
+            this.title_snippet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.title_snippet.AutoSize = true;
             this.title_snippet.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.title_snippet.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.title_snippet.Location = new System.Drawing.Point(15, 10);
+            this.title_snippet.Location = new System.Drawing.Point(3, 0);
             this.title_snippet.Name = "title_snippet";
-            this.title_snippet.Size = new System.Drawing.Size(49, 30);
+            this.title_snippet.Size = new System.Drawing.Size(49, 29);
             this.title_snippet.TabIndex = 4;
             this.title_snippet.Text = "title";
             // 
@@ -119,12 +135,25 @@
             this.richText.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.richText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.richText.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.richText.Location = new System.Drawing.Point(10, 50);
+            this.richText.Location = new System.Drawing.Point(10, 67);
             this.richText.Name = "richText";
-            this.richText.ReadOnly = true;
-            this.richText.Size = new System.Drawing.Size(890, 763);
+            this.richText.Size = new System.Drawing.Size(890, 746);
             this.richText.TabIndex = 2;
             this.richText.Text = "text";
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.title_snippet, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.envName, 1, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 7);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(875, 29);
+            this.tableLayoutPanel1.TabIndex = 6;
             // 
             // Form2
             // 
@@ -141,7 +170,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -156,5 +186,7 @@
         private RichTextBox richText;
         private Label title_snippet;
         private TextBox textBox1;
+        private Label envName;
+        private TableLayoutPanel tableLayoutPanel1;
     }
 }

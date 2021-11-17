@@ -21,6 +21,10 @@ namespace SnippetsFast
 
             this.sl = sl;
 
+            richText.Visible = false;
+            title_snippet.Text = "";
+            envName.Text = "";
+            
             load();
         }
 
@@ -33,7 +37,7 @@ namespace SnippetsFast
                 }
                 foreach(string file in df.Value)
                 {
-                    FolderFiles folder = new(ref this.sl, df.Key.ToString());
+                    FolderFiles folder = new(ref this.sl, df.Key.ToString(), ref richText, ref title_snippet, ref envName);
                     ListFolderFiles.Controls.Add(folder);
                 }
             }

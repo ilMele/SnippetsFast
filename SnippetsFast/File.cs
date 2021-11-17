@@ -12,10 +12,28 @@ namespace SnippetsFast
 {
     public partial class File : UserControl
     {
-        public File(string fileName)
+        protected string filePath, dirName;
+        protected RichTextBox textBox;
+        protected Label titleSnippet;
+        protected Label envName;
+        public File(string filePath, string dirName, ref RichTextBox textbox, ref Label titleSnippet, ref Label envName)
         {
             InitializeComponent();
-            this.fileName.Text = fileName;
+            this.filePath = filePath;
+            this.dirName = dirName;
+            this.textBox = textbox;
+            this.titleSnippet = titleSnippet;
+            this.envName = envName;
+
+            fileName.Text = Path.GetFileName(this.filePath);
+        }
+
+        private void file_onClick(object sender, MouseEventArgs e)
+        {
+            envName.Text = dirName;
+            titleSnippet.Text = Path.GetFileName(filePath);
+            textBox.Visible = true;
+            textBox.Text = System.IO.File.ReadAllText(filePath);
         }
     }
 }

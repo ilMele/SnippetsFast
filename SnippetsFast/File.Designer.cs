@@ -41,6 +41,7 @@
             this.fileName.Size = new System.Drawing.Size(61, 17);
             this.fileName.TabIndex = 0;
             this.fileName.Text = "file name";
+            this.fileName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.file_onClick);
             // 
             // File
             // 
