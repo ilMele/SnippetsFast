@@ -52,7 +52,7 @@ namespace SnippetsFast
         {
             if(e.KeyChar == (char)13)
             {
-                Clipboard.SetText(File.ReadAllText(selected.SnpPath));
+                Clipboard.SetText(System.IO.File.ReadAllText(selected.SnpPath));
                 this.Hide();
                 SendKeys.SendWait("^v");
             }
@@ -63,10 +63,20 @@ namespace SnippetsFast
             this.Hide();
         }
 
-        private void notifyIcon1_DoubleClick(object sender, MouseEventArgs e)
+        private void refreshButton_onClick(object sender, MouseEventArgs e)
+        {
+            sl.Load();
+        }
+
+        private void notifyIcon1_Click(object sender, MouseEventArgs e)
         {
             this.Show();
             this.Activate();
+        }
+
+        private void editorButton_onClick(object sender, MouseEventArgs e)
+        {
+            Form2 Weditor = new(ref this.sl);
         }
     }
 }

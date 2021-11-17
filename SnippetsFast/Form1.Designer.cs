@@ -29,10 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.editorButton = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // textBox1
@@ -62,7 +65,7 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(-7, 111);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(377, 462);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(377, 395);
             this.flowLayoutPanel1.TabIndex = 3;
             // 
             // notifyIcon1
@@ -70,7 +73,27 @@
             this.notifyIcon1.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.notifyIcon1.Text = "SnippetFast";
             this.notifyIcon1.Visible = true;
-            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_DoubleClick);
+            this.notifyIcon1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_Click);
+            // 
+            // editorButton
+            // 
+            this.editorButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("editorButton.BackgroundImage")));
+            this.editorButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.editorButton.Location = new System.Drawing.Point(321, 525);
+            this.editorButton.Name = "editorButton";
+            this.editorButton.Size = new System.Drawing.Size(40, 40);
+            this.editorButton.TabIndex = 4;
+            this.editorButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.editorButton_onClick);
+            // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel1.Location = new System.Drawing.Point(2, 530);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(35, 35);
+            this.panel1.TabIndex = 5;
+            this.panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.refreshButton_onClick);
             // 
             // Form1
             // 
@@ -78,6 +101,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(364, 567);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.editorButton);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
@@ -98,5 +123,7 @@
         private Label label1;
         private FlowLayoutPanel flowLayoutPanel1;
         private NotifyIcon notifyIcon1;
+        private Panel editorButton;
+        private Panel panel1;
     }
 }

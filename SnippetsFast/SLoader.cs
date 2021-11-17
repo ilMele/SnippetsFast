@@ -8,7 +8,7 @@ namespace SnippetsFast
 {
     public class SLoader
     {
-        private string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Snippetsfast";
+        private string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\SnippetsFast";
 
         public Dictionary<string, List<string>> Files { get; set; }
 
@@ -26,14 +26,24 @@ namespace SnippetsFast
 
         public void Load()
         {
+            Files.Clear();
+
             string[] ds = Directory.GetDirectories(folderPath);
+
+            Files.Add("home", new List<string>());
+            
+            foreach(string s in Directory.GetFiles(folderPath))
+            {
+                Files["home"].Add(s);
+            }
 
             foreach(string d in ds) 
             {
-                foreach(string f in Directory.GetFiles(d))
+                foreach (string f in Directory.GetFiles(d))
                 {
                     string dirname = Path.GetFileName(d);
-                    if (!Files.ContainsKey(dirname)){
+                    if (!Files.ContainsKey(dirname))
+                    {
                         Files.Add(dirname, new List<string>());
                     }
                     Files[dirname].Add(f);
