@@ -33,13 +33,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.ListFolderFiles = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.envName = new System.Windows.Forms.Label();
+            this.savePanel = new System.Windows.Forms.Panel();
+            this.saveLabel = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.title_snippet = new System.Windows.Forms.Label();
+            this.envName = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.richText = new System.Windows.Forms.RichTextBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.savePanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,6 +89,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.panel2.Controls.Add(this.savePanel);
             this.panel2.Controls.Add(this.tableLayoutPanel1);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.richText);
@@ -96,17 +100,39 @@
             this.panel2.Size = new System.Drawing.Size(900, 813);
             this.panel2.TabIndex = 1;
             // 
-            // envName
+            // savePanel
             // 
-            this.envName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.envName.AutoSize = true;
-            this.envName.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.envName.ForeColor = System.Drawing.Color.Gainsboro;
-            this.envName.Location = new System.Drawing.Point(840, 9);
-            this.envName.Name = "envName";
-            this.envName.Size = new System.Drawing.Size(32, 20);
-            this.envName.TabIndex = 5;
-            this.envName.Text = "env";
+            this.savePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.savePanel.Controls.Add(this.saveLabel);
+            this.savePanel.Location = new System.Drawing.Point(845, 9);
+            this.savePanel.Name = "savePanel";
+            this.savePanel.Size = new System.Drawing.Size(43, 27);
+            this.savePanel.TabIndex = 7;
+            // 
+            // saveLabel
+            // 
+            this.saveLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.saveLabel.Location = new System.Drawing.Point(0, 0);
+            this.saveLabel.Name = "saveLabel";
+            this.saveLabel.Size = new System.Drawing.Size(43, 27);
+            this.saveLabel.TabIndex = 0;
+            this.saveLabel.Text = "save";
+            this.saveLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.saveLabel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.saveLabel_onClick);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.title_snippet, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.envName, 1, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 7);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(826, 29);
+            this.tableLayoutPanel1.TabIndex = 6;
             // 
             // title_snippet
             // 
@@ -119,6 +145,18 @@
             this.title_snippet.Size = new System.Drawing.Size(49, 29);
             this.title_snippet.TabIndex = 4;
             this.title_snippet.Text = "title";
+            // 
+            // envName
+            // 
+            this.envName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.envName.AutoSize = true;
+            this.envName.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.envName.ForeColor = System.Drawing.Color.Gainsboro;
+            this.envName.Location = new System.Drawing.Point(791, 9);
+            this.envName.Name = "envName";
+            this.envName.Size = new System.Drawing.Size(32, 20);
+            this.envName.TabIndex = 5;
+            this.envName.Text = "env";
             // 
             // panel3
             // 
@@ -140,20 +178,7 @@
             this.richText.Size = new System.Drawing.Size(890, 746);
             this.richText.TabIndex = 2;
             this.richText.Text = "text";
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.title_snippet, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.envName, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 7);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(875, 29);
-            this.tableLayoutPanel1.TabIndex = 6;
+            this.richText.TextChanged += new System.EventHandler(this.richText_onTextChange);
             // 
             // Form2
             // 
@@ -170,6 +195,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.savePanel.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -188,5 +214,7 @@
         private TextBox textBox1;
         private Label envName;
         private TableLayoutPanel tableLayoutPanel1;
+        private Panel savePanel;
+        private Label saveLabel;
     }
 }

@@ -8,8 +8,24 @@ namespace SnippetsFast
         [STAThread]
         static void Main()
         {
-            ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            Mutex mutex = new System.Threading.Mutex(false, "SnippetsFast");
+            try
+            {
+                if(mutex.WaitOne(0, false))
+                {
+                    ApplicationConfiguration.Initialize();
+                    Application.Run(new Form1());
+                }
+            }
+            finally
+            {
+                if(mutex != null)
+                {
+                    mutex.Close();
+                    mutex = null;
+                }
+            }
+            
         }
     }
 }

@@ -17,7 +17,9 @@ namespace SnippetsFast
         protected RichTextBox textBox;
         protected Label titleSnippet;
         protected Label envName;
-        public FolderFiles(ref SLoader ffiles, string folder, ref RichTextBox textBox, ref Label titleSnippet, ref Label envName)
+        protected Label filePath_invisible;
+        protected bool textFlag;
+        public FolderFiles(ref SLoader ffiles, string folder, ref RichTextBox textBox, ref Label titleSnippet, ref Label envName, ref bool textFlag)
         {
             InitializeComponent();
             this.ffiles = ffiles;
@@ -25,6 +27,7 @@ namespace SnippetsFast
             this.textBox = textBox;
             this.titleSnippet = titleSnippet;
             this.envName = envName;
+            this.textFlag = textFlag;
 
             this.folderName.Text = this.folder;
             Files.Visible = false;
@@ -34,7 +37,7 @@ namespace SnippetsFast
         public void load()
         {
             foreach(string file in this.ffiles.Files[folder]){
-                File f = new(file, folder, ref textBox, ref titleSnippet, ref envName);
+                File f = new(file, folder, ref textBox, ref titleSnippet, ref envName, ref textFlag);
                 Files.Controls.Add(f);
             }
         }
