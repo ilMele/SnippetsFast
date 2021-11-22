@@ -6,49 +6,56 @@ using System.Threading.Tasks;
 
 namespace SnippetsFast
 {
+    public class Item
+    {
+        public string name { get; set; }
+        public List<Item> items { get; set; }
+
+        public Item(string name, bool load)
+        {
+            this.name = name;
+            this.items = new List<Item>();
+            if (load) { this.Load(name); }
+        }
+
+        public void Add(Item n)
+        {
+            items.Add(n);
+        }
+
+        protected void Load(string folder)
+        {
+            foreach (string f in Directory.GetFiles(folder))
+            {
+                this.Add(new Item(f, false));
+            }
+
+            foreach (string d in Directory.GetDirectories(folder))
+            {
+                this.Add(new Item(d, true));
+            }
+        }
+
+
+    }
+
     public class SLoader
     {
         private string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\SnippetsFast";
-
-        public Dictionary<string, List<string>> Files { get; set; }
+        public Item top { get; set; }
 
         public SLoader()
         {
-            Files = new Dictionary<string, List<string>>();
-
             if (!Directory.Exists(folderPath))
             {
                 Directory.CreateDirectory(folderPath);
             }
-
-            Load();
+            top = new(folderPath, true);
         }
 
         public void Load()
         {
-            Files.Clear();
-
-            string[] ds = Directory.GetDirectories(folderPath);
-
-            Files.Add("home", new List<string>());
-            
-            foreach(string s in Directory.GetFiles(folderPath))
-            {
-                Files["home"].Add(s);
-            }
-
-            foreach(string d in ds) 
-            {
-                foreach (string f in Directory.GetFiles(d))
-                {
-                    string dirname = Path.GetFileName(d);
-                    if (!Files.ContainsKey(dirname))
-                    {
-                        Files.Add(dirname, new List<string>());
-                    }
-                    Files[dirname].Add(f);
-                }
-            }
+            top = new(folderPath, true);
         }
     }
 }
