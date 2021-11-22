@@ -19,25 +19,22 @@ namespace SnippetsFast
             notifyIcon1.Icon = Icon;
         }
 
-        public void search()
+        public void search(Item item)
         {
-            if (textBox1.Text.Length < 3) { return; }
-
-            foreach (KeyValuePair<string, List<string>> d in sl.Files)
+            foreach (Item i in item.items)
             {
-                foreach(string s in d.Value)
+                if (i.items.Count == 0 && i.name.Contains(textBox1.Text))
                 {
-                    if (s.Contains(textBox1.Text))
+                    Snippet s = new Snippet(Path.GetFileName(Path.GetDirectoryName(i.name)), Path.GetFileName(i.name), i.name);
+                    flowLayoutPanel1.Controls.Add(s);
+                    if (!snSelected)
                     {
-                        Snippet sn = new(d.Key, Path.GetFileName(s), s);
-                        flowLayoutPanel1.Controls.Add(sn);
-                        if (!snSelected)
-                        {
-                            selected = sn;
-                            snSelected = true;
-                        }
+                        selected = s;
+                        snSelected = true;
                     }
+                    continue;
                 }
+                search(i);
             }
         }
 
@@ -45,16 +42,16 @@ namespace SnippetsFast
         {
             flowLayoutPanel1.Controls.Clear();
             snSelected = false;
-            search();
+            if (textBox1.Text != "") { search(sl.top); }
         }
 
         private void onKeyPress(object sender, KeyPressEventArgs e)
         {
-            if(e.KeyChar == (char)13)
+            if (e.KeyChar == (char)13)
             {
                 Clipboard.SetText(System.IO.File.ReadAllText(selected.SnpPath));
                 this.Hide();
-                //SendKeys.SendWait("^v");
+                textBox1.Text = "";
             }
         }
 
