@@ -4,17 +4,19 @@ namespace SnippetsFast
 {
     public partial class Form1 : Form
     {
+        protected Form2 weditor;
         protected SLoader sl;
         protected Snippet selected;
         protected bool snSelected;
         public Form1()
         {
+            weditor = null;
+            snSelected = false;
+            sl = new SLoader();
+
             InitializeComponent();
 
-            snSelected = false;
             selected = new Snippet();
-
-            sl = new SLoader();
 
             notifyIcon1.Icon = Icon;
         }
@@ -73,7 +75,10 @@ namespace SnippetsFast
 
         private void editorButton_onClick(object sender, MouseEventArgs e)
         {
-            Form2 Weditor = new(ref this.sl);
+            if(weditor == null)
+            {
+                weditor = new(ref this.sl);
+            }
         }
     }
 }
