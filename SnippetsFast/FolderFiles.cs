@@ -12,33 +12,25 @@ namespace SnippetsFast
 {
     public partial class FolderFiles : UserControl
     {
-        protected string folder;
-        protected SLoader ffiles;
-        protected RichTextBox textBox;
-        protected Label titleSnippet;
-        protected Label envName;
-        protected Label filePath_invisible;
-        protected bool textFlag;
-        public FolderFiles(ref SLoader ffiles, string folder, ref RichTextBox textBox, ref Label titleSnippet, ref Label envName, ref bool textFlag)
+        
+        public FolderFiles(Item item)
         {
             InitializeComponent();
-            this.ffiles = ffiles;
-            this.folder = folder;
-            this.textBox = textBox;
-            this.titleSnippet = titleSnippet;
-            this.envName = envName;
-            this.textFlag = textFlag;
-
-            this.folderName.Text = this.folder;
+            folderName.Text = Path.GetFileName(item.name);
             Files.Visible = false;
-            this.load();
+            this.load(item);
         }
 
-        public void load()
+        public void load(Item item)
         {
-            foreach(string file in this.ffiles.Files[folder]){
-                File f = new(file, folder, ref textBox, ref titleSnippet, ref envName, ref textFlag);
-                Files.Controls.Add(f);
+            foreach(Item i in item.items)
+            {
+                if(i.items.Count == 0)
+                {
+                    Files.Controls.Add(new File(i.name));
+                    continue;
+                }
+                Files.Controls.Add(new FolderFiles(i));
             }
         }
 

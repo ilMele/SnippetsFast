@@ -8,6 +8,7 @@ namespace SnippetsFast
 {
     public class Item
     {
+        protected int id;
         public string name { get; set; }
         public List<Item> items { get; set; }
 
@@ -41,7 +42,7 @@ namespace SnippetsFast
 
     public class SLoader
     {
-        private string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\SnippetsFast";
+        private string folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "SnippetsFast");
         public Item top { get; set; }
 
         public SLoader()

@@ -148,11 +148,11 @@
             // 
             // envName
             // 
-            this.envName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.envName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.envName.AutoSize = true;
             this.envName.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.envName.ForeColor = System.Drawing.Color.Gainsboro;
-            this.envName.Location = new System.Drawing.Point(791, 9);
+            this.envName.Location = new System.Drawing.Point(416, 9);
             this.envName.Name = "envName";
             this.envName.Size = new System.Drawing.Size(32, 20);
             this.envName.TabIndex = 5;
@@ -188,7 +188,7 @@
             this.ClientSize = new System.Drawing.Size(1226, 813);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";

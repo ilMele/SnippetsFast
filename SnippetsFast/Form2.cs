@@ -12,49 +12,54 @@ namespace SnippetsFast
 {
     public partial class Form2 : Form
     {
-        protected SLoader sl;
-        protected bool textChangeFlag;
+        protected SLoader sl { get; set; }
+
         public Form2(ref SLoader sl)
         {
             InitializeComponent();
             this.Show();
             this.Activate();
 
-            this.sl = sl;
-            this.textChangeFlag = false;
-
             richText.Visible = false;
             title_snippet.Text = "";
             envName.Text = "";
-            
-            load();
+
+            this.sl = sl;
+
+            load(this.sl.top);
         }
 
-        public void load()
+        public void load(Item item)
         {
-            foreach(KeyValuePair<string, List<string>> df in sl.Files){
-                if (df.Key == "home" && df.Value.Count > 0)
+            if(item == sl.top)
+            {
+                foreach(Item f in item.items)
                 {
-                    continue;
+                    if(f.items.Count == 0)
+                    {
+                        ListFolderFiles.Controls.Add(new File(f.name));
+                    }
                 }
-                foreach(string file in df.Value)
+            }
+
+            foreach(Item i in item.items)
+            {
+                if(i.items.Count > 0)
                 {
-                    FolderFiles folder = new(ref this.sl, df.Key.ToString(), ref richText, ref title_snippet, ref envName, ref textChangeFlag);
-                    ListFolderFiles.Controls.Add(folder);
+                    ListFolderFiles.Controls.Add(new FolderFiles(i));
                 }
             }
         }
 
         private void saveLabel_onClick(object sender, MouseEventArgs e)
         {
-            System.IO.File.WriteAllText(richText.AccessibleDescription, richText.Text);
+            //System.IO.File.WriteAllText(richText.AccessibleDescription, richText.Text);
             savePanel.BackColor = Color.LightGreen;
         }
 
         private void richText_onTextChange(object sender, EventArgs e)
         {
-            if (!textChangeFlag ) { textChangeFlag = true;  return; }
-            savePanel.BackColor = Color.OrangeRed;
+            
         }
     }
 }

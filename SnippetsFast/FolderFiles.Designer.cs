@@ -58,6 +58,7 @@
             // 
             this.Files.AutoSize = true;
             this.Files.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Files.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.Files.Location = new System.Drawing.Point(39, 48);
             this.Files.Name = "Files";
             this.Files.Size = new System.Drawing.Size(0, 0);
