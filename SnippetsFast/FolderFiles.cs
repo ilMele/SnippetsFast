@@ -12,9 +12,10 @@ namespace SnippetsFast
 {
     public partial class FolderFiles : UserControl
     {
-        
-        public FolderFiles(Item item)
+        protected Form2 editor;
+        public FolderFiles(Item item,Form2 editor)
         {
+            this.editor = editor;
             InitializeComponent();
             folderName.Text = Path.GetFileName(item.name);
             Files.Visible = false;
@@ -27,10 +28,10 @@ namespace SnippetsFast
             {
                 if(i.items.Count == 0)
                 {
-                    Files.Controls.Add(new File(i.name));
+                    Files.Controls.Add(new File(i.name, editor));
                     continue;
                 }
-                Files.Controls.Add(new FolderFiles(i));
+                Files.Controls.Add(new FolderFiles(i, editor));
             }
         }
 

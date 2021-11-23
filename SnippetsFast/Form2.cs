@@ -12,19 +12,21 @@ namespace SnippetsFast
 {
     public partial class Form2 : Form
     {
-        protected SLoader sl { get; set; }
-
+        public String fileEdit { get; set; }
+        public bool saveFlag { get;  set; }
+        protected SLoader sl;
         public Form2(ref SLoader sl)
         {
+            this.sl = sl;
+            this.fileEdit = "";
+            this.saveFlag = false;
+
             InitializeComponent();
             this.Show();
             this.Activate();
-
             richText.Visible = false;
             title_snippet.Text = "";
             envName.Text = "";
-
-            this.sl = sl;
 
             load(this.sl.top);
         }
@@ -37,7 +39,7 @@ namespace SnippetsFast
                 {
                     if(f.items.Count == 0)
                     {
-                        ListFolderFiles.Controls.Add(new File(f.name));
+                        ListFolderFiles.Controls.Add(new File(f.name, this));
                     }
                 }
             }
@@ -46,20 +48,35 @@ namespace SnippetsFast
             {
                 if(i.items.Count > 0)
                 {
-                    ListFolderFiles.Controls.Add(new FolderFiles(i));
+                    ListFolderFiles.Controls.Add(new FolderFiles(i, this));
                 }
             }
         }
 
         private void saveLabel_onClick(object sender, MouseEventArgs e)
         {
-            //System.IO.File.WriteAllText(richText.AccessibleDescription, richText.Text);
+            System.IO.File.WriteAllText(fileEdit, richText.Text);
             savePanel.BackColor = Color.LightGreen;
         }
 
         private void richText_onTextChange(object sender, EventArgs e)
         {
-            
+            if (saveFlag)
+            {
+                savePanel.BackColor = Color.OrangeRed;
+            }
+            saveFlag = true;
         }
+
+        public void SaveTurnGreen()
+        {
+            savePanel.BackColor = Color.LightGreen;
+        }
+
+        public RichTextBox getRichText()
+        {
+            return this.richText;
+        }
+
     }
 }
