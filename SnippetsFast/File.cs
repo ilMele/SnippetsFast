@@ -26,11 +26,10 @@ namespace SnippetsFast
         {
             if(path == editor.fileEdit) { return; }
 
-            if (path != editor.fileEdit)
-            {
-                editor.saveFlag = false;
-                editor.SaveTurnGreen();
-            }
+            editor.saveFlag = false;
+            editor.SaveTurnGreen();
+            editor.getTitleLabel().Text = fileName.Text;
+            editor.getEnvLabel().Text = Path.GetFileName(Path.GetDirectoryName(path));
             editor.getRichText().Text = System.IO.File.ReadAllText(path);
 
             editor.fileEdit = path;

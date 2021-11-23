@@ -168,9 +168,10 @@
             // 
             // richText
             // 
+            this.richText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.richText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.richText.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richText.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.richText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.richText.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.richText.Location = new System.Drawing.Point(10, 67);

@@ -73,9 +73,19 @@ namespace SnippetsFast
             savePanel.BackColor = Color.LightGreen;
         }
 
-        public RichTextBox getRichText()
+        public ref RichTextBox getRichText()
         {
-            return this.richText;
+            return ref this.richText;
+        }
+
+        public ref Label getTitleLabel()
+        {
+            return ref title_snippet;
+        } 
+
+        public ref Label getEnvLabel()
+        {
+            return ref envName;
         }
 
     }
