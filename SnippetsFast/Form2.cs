@@ -33,23 +33,14 @@ namespace SnippetsFast
 
         public void load(Item item)
         {
-            if(item == sl.top)
-            {
-                foreach(Item f in item.items)
-                {
-                    if(f.items.Count == 0)
-                    {
-                        ListFolderFiles.Controls.Add(new File(f.name, this));
-                    }
-                }
-            }
-
             foreach(Item i in item.items)
             {
-                if(i.items.Count > 0)
+                if(i.items.Count == 0)
                 {
-                    ListFolderFiles.Controls.Add(new FolderFiles(i, this));
+                    ListFolderFiles.Controls.Add(new File(i.name, this));
+                    continue;
                 }
+                ListFolderFiles.Controls.Add(new FolderFiles(i, this));
             }
         }
 
