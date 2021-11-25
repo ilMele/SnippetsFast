@@ -39,7 +39,11 @@ namespace SnippetsFast
 
         private void stripMenu_delete(object sender, EventArgs e)
         {
-            System.IO.File.Delete(path);
+            DialogResult dr = MessageBox.Show($"Do you want to delete {Path.GetFileName(path)}?", ":(", MessageBoxButtons.YesNo);
+            if(dr == DialogResult.Yes)
+            {
+                System.IO.File.Delete(path);
+            }
         }
     }
 }

@@ -53,5 +53,14 @@ namespace SnippetsFast
         {
             Files.Controls.Add(new FileCreator(path, ref Files, false));
         }
+
+        private void stripMenu_delete(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show($"Do you want to delete the {Path.GetFileName(path)} folder and all its contents?", ":(", MessageBoxButtons.YesNo);
+            if(dr == DialogResult.Yes)
+            {
+                Directory.Delete(path, true);
+            }
+        }
     }
 }

@@ -113,6 +113,7 @@
             this.deleteFolderToolStripMenuItem.Name = "deleteFolderToolStripMenuItem";
             this.deleteFolderToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.deleteFolderToolStripMenuItem.Text = "delete folder";
+            this.deleteFolderToolStripMenuItem.Click += new System.EventHandler(this.stripMenu_delete);
             // 
             // FolderFiles
             // 
