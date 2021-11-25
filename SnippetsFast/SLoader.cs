@@ -8,7 +8,6 @@ namespace SnippetsFast
 {
     public class Item
     {
-        //protected int id;
         public bool type { get; set; }
         public string name { get; set; }
         public List<Item> items { get; set; }

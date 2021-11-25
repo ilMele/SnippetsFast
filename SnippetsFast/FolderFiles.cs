@@ -53,14 +53,12 @@ namespace SnippetsFast
 
         private void stripMenu_newFile_onClick(object sender, EventArgs e)
         {
-            //Files.Controls.Add(new FileCreator(path, ref Files, true, refresh));
             switchFiles();
             new CreationWindow(path, true, refresh).ShowDialog();
         }
 
         private void stripMenu_newFolder(object sender, EventArgs e)
         {
-            //Files.Controls.Add(new FileCreator(path, ref Files, false, refresh));
             switchFiles();
             new CreationWindow(path, false, refresh).ShowDialog();
         }
