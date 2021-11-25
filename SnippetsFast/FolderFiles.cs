@@ -13,9 +13,12 @@ namespace SnippetsFast
     public partial class FolderFiles : UserControl
     {
         protected Form2 editor;
+        protected String path;
         public FolderFiles(Item item,Form2 editor)
         {
             this.editor = editor;
+            this.path = item.name;
+
             InitializeComponent();
             this.folderAreaPanel.ContextMenuStrip = contextMenuStrip1;
             folderName.Text = Path.GetFileName(item.name);
@@ -43,7 +46,12 @@ namespace SnippetsFast
 
         private void stripMenu_newFile_onClick(object sender, EventArgs e)
         {
-            
+            Files.Controls.Add(new FileCreator(path, ref Files, true));
+        }
+
+        private void stripMenu_newFolder(object sender, EventArgs e)
+        {
+            Files.Controls.Add(new FileCreator(path, ref Files, false));
         }
     }
 }

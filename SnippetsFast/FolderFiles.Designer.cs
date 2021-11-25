@@ -106,6 +106,7 @@
             this.newFolderToolStripMenuItem.Name = "newFolderToolStripMenuItem";
             this.newFolderToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.newFolderToolStripMenuItem.Text = "new folder";
+            this.newFolderToolStripMenuItem.Click += new System.EventHandler(this.stripMenu_newFolder);
             // 
             // deleteFolderToolStripMenuItem
             // 

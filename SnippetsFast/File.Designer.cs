@@ -59,6 +59,7 @@
             this.deleteFileToolStripMenuItem.Name = "deleteFileToolStripMenuItem";
             this.deleteFileToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.deleteFileToolStripMenuItem.Text = "delete file";
+            this.deleteFileToolStripMenuItem.Click += new System.EventHandler(this.stripMenu_delete);
             // 
             // File
             // 

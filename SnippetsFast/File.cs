@@ -36,5 +36,10 @@ namespace SnippetsFast
             editor.fileEdit = path;
             if(!editor.getRichText().Visible) { editor.getRichText().Visible = true; }
         }
+
+        private void stripMenu_delete(object sender, EventArgs e)
+        {
+            System.IO.File.Delete(path);
+        }
     }
 }

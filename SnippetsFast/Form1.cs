@@ -73,11 +73,17 @@ namespace SnippetsFast
             this.Activate();
         }
 
+        private void Weditor_FormClosed(object? sender, FormClosedEventArgs e)
+        {
+            weditor = null;
+        }
+
         private void editorButton_onClick(object sender, MouseEventArgs e)
         {
             if(weditor == null)
             {
                 weditor = new(ref this.sl);
+                weditor.FormClosed += Weditor_FormClosed;
             }
         }
     }
