@@ -17,6 +17,7 @@ namespace SnippetsFast
         {
             this.editor = editor;
             InitializeComponent();
+            this.folderAreaPanel.ContextMenuStrip = contextMenuStrip1;
             folderName.Text = Path.GetFileName(item.name);
             Files.Visible = false;
             this.load(item);
@@ -38,6 +39,11 @@ namespace SnippetsFast
         private void FolderName_onClick(object sender, MouseEventArgs e)
         {
             Files.Visible = !Files.Visible;
+        }
+
+        private void stripMenu_newFile_onClick(object sender, EventArgs e)
+        {
+            
         }
     }
 }

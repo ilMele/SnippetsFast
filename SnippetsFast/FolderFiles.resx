@@ -58,10 +58,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="panel1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="folderIconPanel.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        5gAAAOYBIly6UQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAEfSURBVFhHY/j/
+        4wAAAOMBD+bfpwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAEfSURBVFhHY/j/
         //+AYqyC9MRYBemJUTh2y2f52S2f00EQL52djKyPEgxn2C6brWe3bPYfIP5PDLZfNjsS2SBk7HJ4voPL
         kUV3XY4s/IELux5e+Nj5yMJ4sAaHxXNUgIY+RreEAP5pu2zOYSB9AB07H1z4DWjJfyLwS7ADgEE6Hajx
         f8TGFf/jt6yhCEfsWInNIpwY4oBls2aAHHD60eP/rz98JhvfefPmf9rZTVgtwoUZXA8vCnU5uOCDy6GF
@@ -69,4 +69,7 @@
         gkMMzieWiQPbhcUuRxd20BOD7ATZDe9MDBTGKkhPjFWQfvg/AwAQndvX8J3/8AAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

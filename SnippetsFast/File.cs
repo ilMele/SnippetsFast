@@ -19,6 +19,7 @@ namespace SnippetsFast
             path = name;
             this.editor = editor;
             InitializeComponent();
+            this.ContextMenuStrip = contextMenuStrip1;
             fileName.Text = Path.GetFileName(path);
         }
 

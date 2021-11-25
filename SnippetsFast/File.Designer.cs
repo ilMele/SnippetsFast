@@ -28,7 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.fileName = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.deleteFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // fileName
@@ -43,6 +47,19 @@
             this.fileName.Text = "file name";
             this.fileName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.file_onClick);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteFileToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(126, 26);
+            // 
+            // deleteFileToolStripMenuItem
+            // 
+            this.deleteFileToolStripMenuItem.Name = "deleteFileToolStripMenuItem";
+            this.deleteFileToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.deleteFileToolStripMenuItem.Text = "delete file";
+            // 
             // File
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -54,7 +71,8 @@
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "File";
             this.Padding = new System.Windows.Forms.Padding(1);
-            this.Size = new System.Drawing.Size(66, 19);
+            this.Size = new System.Drawing.Size(66, 26);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -63,5 +81,7 @@
         #endregion
 
         private Label fileName;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem deleteFileToolStripMenuItem;
     }
 }
