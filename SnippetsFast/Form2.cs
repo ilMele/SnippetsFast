@@ -24,10 +24,12 @@ namespace SnippetsFast
             InitializeComponent();
             this.Show();
             this.Activate();
+
+            ListFolderFiles.ContextMenuStrip = contextMenuStrip1;
             richText.Visible = false;
             title_snippet.Text = "";
             envName.Text = "";
-
+            
             load(this.sl.top);
         }
 
@@ -37,11 +39,18 @@ namespace SnippetsFast
             {
                 if(i.items.Count == 0)
                 {
-                    ListFolderFiles.Controls.Add(new File(i.name, this));
+                    ListFolderFiles.Controls.Add(new File(i.name, this, refresh));
                     continue;
                 }
-                ListFolderFiles.Controls.Add(new FolderFiles(i, this));
+                ListFolderFiles.Controls.Add(new FolderFiles(i, this, refresh));
             }
+        }
+
+        public void refresh()
+        {
+            ListFolderFiles.Controls.Clear();
+            sl.Load();
+            load(sl.top);
         }
 
         private void saveLabel_onClick(object sender, MouseEventArgs e)
@@ -79,5 +88,14 @@ namespace SnippetsFast
             return ref envName;
         }
 
+        private void stripMenu_newFile(object sender, EventArgs e)
+        {
+            new CreationWindow(sl.top.name, true, refresh).ShowDialog();
+        }
+
+        private void stripMenu_newFolder(object sender, EventArgs e)
+        {
+            new CreationWindow(sl.top.name, false, refresh).ShowDialog();
+        }
     }
 }

@@ -14,10 +14,12 @@ namespace SnippetsFast
     {
         protected Form2 editor;
         protected String path;
-        public FolderFiles(Item item,Form2 editor)
+        protected Action refresh;
+        public FolderFiles(Item item,Form2 editor, Action refresh)
         {
             this.editor = editor;
-            this.path = item.name;
+            path = item.name;
+            this.refresh = refresh;
 
             InitializeComponent();
             this.folderAreaPanel.ContextMenuStrip = contextMenuStrip1;
@@ -32,26 +34,35 @@ namespace SnippetsFast
             {
                 if(i.items.Count == 0)
                 {
-                    Files.Controls.Add(new File(i.name, editor));
+                    Files.Controls.Add(new File(i.name, editor, refresh));
                     continue;
                 }
-                Files.Controls.Add(new FolderFiles(i, editor));
+                Files.Controls.Add(new FolderFiles(i, editor, refresh));
             }
         }
 
-        private void FolderName_onClick(object sender, MouseEventArgs e)
+        private void switchFiles()
         {
             Files.Visible = !Files.Visible;
         }
 
+        private void FolderName_onClick(object sender, MouseEventArgs e)
+        {
+            switchFiles();
+        }
+
         private void stripMenu_newFile_onClick(object sender, EventArgs e)
         {
-            Files.Controls.Add(new FileCreator(path, ref Files, true));
+            //Files.Controls.Add(new FileCreator(path, ref Files, true, refresh));
+            switchFiles();
+            new CreationWindow(path, true, refresh).ShowDialog();
         }
 
         private void stripMenu_newFolder(object sender, EventArgs e)
         {
-            Files.Controls.Add(new FileCreator(path, ref Files, false));
+            //Files.Controls.Add(new FileCreator(path, ref Files, false, refresh));
+            switchFiles();
+            new CreationWindow(path, false, refresh).ShowDialog();
         }
 
         private void stripMenu_delete(object sender, EventArgs e)
@@ -60,6 +71,7 @@ namespace SnippetsFast
             if(dr == DialogResult.Yes)
             {
                 Directory.Delete(path, true);
+                refresh();
             }
         }
     }

@@ -14,10 +14,13 @@ namespace SnippetsFast
     {
         protected string path;
         protected Form2 editor;
-        public File(string name, Form2 editor)
+        protected Action refresh;
+        public File(string name, Form2 editor, Action refresh)
         {
             path = name;
             this.editor = editor;
+            this.refresh = refresh;
+
             InitializeComponent();
             this.ContextMenuStrip = contextMenuStrip1;
             fileName.Text = Path.GetFileName(path);
@@ -43,6 +46,7 @@ namespace SnippetsFast
             if(dr == DialogResult.Yes)
             {
                 System.IO.File.Delete(path);
+                refresh();
             }
         }
     }

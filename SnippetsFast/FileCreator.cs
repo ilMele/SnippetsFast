@@ -15,14 +15,21 @@ namespace SnippetsFast
         protected string path;
         protected FlowLayoutPanel Files;
         protected bool type;//true = create file.txt | false = create directory
+        protected Action refresh;
 
-        public FileCreator(string path, ref FlowLayoutPanel Files, bool type)
+        public FileCreator(string path, ref FlowLayoutPanel Files, bool type, Action refresh)
         {
             this.path = path;
             this.Files = Files;
             this.type = type;
+            this.refresh = refresh;
 
             InitializeComponent();
+        }
+
+        private void textBox_lostFocus(object? sender, EventArgs e)
+        {
+            Files.Controls.Remove(this);
         }
 
         private void textBox_keyPress(object sender, KeyPressEventArgs e)
@@ -36,8 +43,8 @@ namespace SnippetsFast
                 {
                     Directory.CreateDirectory(Path.Combine(path, textBox.Text));
                 }
-                
-                Files.Controls.Remove(this);
+                refresh();
+                //Files.Controls.Remove(this);
             }
         }
     }
