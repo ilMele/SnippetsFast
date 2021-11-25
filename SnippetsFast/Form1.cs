@@ -25,7 +25,7 @@ namespace SnippetsFast
         {
             foreach (Item i in item.items)
             {
-                if (i.items.Count == 0 && i.name.Contains(textBox1.Text))
+                if (i.type && i.name.Contains(textBox1.Text))
                 {
                     Snippet s = new Snippet(Path.GetFileName(Path.GetDirectoryName(i.name)), Path.GetFileName(i.name), i.name);
                     flowLayoutPanel1.Controls.Add(s);

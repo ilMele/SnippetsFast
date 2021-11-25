@@ -8,7 +8,8 @@ namespace SnippetsFast
 {
     public class Item
     {
-        protected int id;
+        //protected int id;
+        public bool type { get; set; }
         public string name { get; set; }
         public List<Item> items { get; set; }
 
@@ -16,6 +17,7 @@ namespace SnippetsFast
         {
             this.name = name;
             this.items = new List<Item>();
+            this.type = !load;
             if (load) { this.Load(name); }
         }
 

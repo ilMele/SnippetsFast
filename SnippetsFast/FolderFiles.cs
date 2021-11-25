@@ -32,7 +32,7 @@ namespace SnippetsFast
         {
             foreach(Item i in item.items)
             {
-                if(i.items.Count == 0)
+                if(i.type)
                 {
                     Files.Controls.Add(new File(i.name, editor, refresh));
                     continue;

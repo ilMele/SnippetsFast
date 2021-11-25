@@ -1,3 +1,7 @@
+/*
+ the var bool type: true -> file | false -> folder
+ */
+
 namespace SnippetsFast
 {
     internal static class Program

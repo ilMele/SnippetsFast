@@ -37,7 +37,7 @@ namespace SnippetsFast
         {
             foreach(Item i in item.items)
             {
-                if(i.items.Count == 0)
+                if(i.type)
                 {
                     ListFolderFiles.Controls.Add(new File(i.name, this, refresh));
                     continue;
