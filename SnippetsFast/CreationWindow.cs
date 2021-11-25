@@ -31,7 +31,8 @@ namespace SnippetsFast
             {
                 if (type)
                 {
-                    System.IO.File.Create(Path.Combine(path, textBox1.Text + ".txt"));
+                    FileStream fs = System.IO.File.Create(Path.Combine(path, textBox1.Text + ".txt"));
+                    fs.Close();
                 }
                 else
                 {
