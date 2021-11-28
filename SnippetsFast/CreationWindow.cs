@@ -32,12 +32,26 @@ namespace SnippetsFast
             {
                 if (type)
                 {
-                    FileStream fs = System.IO.File.Create(Path.Combine(path, textBox1.Text + ".txt"));
-                    fs.Close();
+                    if(System.IO.File.Exists(Path.Combine(path, textBox1.Text + ".txt")))
+                    {
+                        DialogResult dr = MessageBox.Show($"{textBox1.Text}.txt already exists, do you want to overwrite?", "", MessageBoxButtons.YesNo);
+                        if(dr == DialogResult.Yes)
+                        {
+                            FileStream fs = System.IO.File.Create(Path.Combine(path, textBox1.Text + ".txt"));
+                            fs.Close();
+                        }
+                    }
                 }
                 else
                 {
-                    Directory.CreateDirectory(Path.Combine(path, textBox1.Text));
+                    if(Directory.Exists(Path.Combine(path, textBox1.Text)))
+                    {
+                        MessageBox.Show($"{textBox1.Text} folder already exists", "");
+                    }
+                    else
+                    {
+                        Directory.CreateDirectory(Path.Combine(path, textBox1.Text));
+                    }
                 }
                 refresh();
                 this.Close();

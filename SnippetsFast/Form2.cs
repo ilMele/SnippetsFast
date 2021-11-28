@@ -112,8 +112,6 @@ namespace SnippetsFast
             new CreationWindow(sl.top.name, false, refresh).ShowDialog();
         }
 
-
-
         private void textBox_textChanged(object sender, EventArgs e)
         {
             ListFolderFiles.Controls.Clear();
