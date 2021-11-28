@@ -53,6 +53,20 @@ namespace SnippetsFast
             load(sl.top);
         }
 
+        public void search(Item item)
+        {
+            foreach (Item i in item.items)
+            {
+                if (i.type && Path.GetFileName(i.name).Contains(textBox1.Text))
+                {
+                    //Snippet s = new Snippet(Path.GetFileName(Path.GetDirectoryName(i.name)), Path.GetFileName(i.name), i.name);
+                    ListFolderFiles.Controls.Add(new File(i.name, this, this.refresh));
+                    continue;
+                }
+                search(i);
+            }
+        }
+
         private void saveLabel_onClick(object sender, MouseEventArgs e)
         {
             System.IO.File.WriteAllText(fileEdit, richText.Text);
@@ -96,6 +110,19 @@ namespace SnippetsFast
         private void stripMenu_newFolder(object sender, EventArgs e)
         {
             new CreationWindow(sl.top.name, false, refresh).ShowDialog();
+        }
+
+
+
+        private void textBox_textChanged(object sender, EventArgs e)
+        {
+            ListFolderFiles.Controls.Clear();
+            if (textBox1.Text == "")
+            {
+                this.load(this.sl.top);
+                return;
+            }
+            this.search(sl.top);
         }
     }
 }

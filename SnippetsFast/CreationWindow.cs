@@ -15,7 +15,8 @@ namespace SnippetsFast
         protected bool type;
         protected string path;
         protected Action refresh;
-        public CreationWindow(string path, bool type, Action refresh)
+        
+	public CreationWindow(string path, bool type, Action refresh)
         {
             this.type = type;
             this.path = path;

@@ -71,6 +71,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(315, 29);
             this.textBox1.TabIndex = 4;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox_textChanged);
             // 
             // label1
             // 
@@ -192,19 +193,19 @@
             this.newFileToolStripMenuItem,
             this.newFolderToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(131, 48);
             // 
             // newFileToolStripMenuItem
             // 
             this.newFileToolStripMenuItem.Name = "newFileToolStripMenuItem";
-            this.newFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newFileToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.newFileToolStripMenuItem.Text = "new file";
             this.newFileToolStripMenuItem.Click += new System.EventHandler(this.stripMenu_newFile);
             // 
             // newFolderToolStripMenuItem
             // 
             this.newFolderToolStripMenuItem.Name = "newFolderToolStripMenuItem";
-            this.newFolderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newFolderToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.newFolderToolStripMenuItem.Text = "new folder";
             this.newFolderToolStripMenuItem.Click += new System.EventHandler(this.stripMenu_newFolder);
             // 
