@@ -35,12 +35,15 @@ namespace SnippetsFast
                     if(System.IO.File.Exists(Path.Combine(path, textBox1.Text + ".txt")))
                     {
                         DialogResult dr = MessageBox.Show($"{textBox1.Text}.txt already exists, do you want to overwrite?", "", MessageBoxButtons.YesNo);
-                        if(dr == DialogResult.Yes)
+                        if(dr == DialogResult.No)
                         {
-                            FileStream fs = System.IO.File.Create(Path.Combine(path, textBox1.Text + ".txt"));
-                            fs.Close();
+                            this.Close();
+                            return;
                         }
                     }
+                    FileStream fs = System.IO.File.Create(Path.Combine(path, textBox1.Text + ".txt"));
+
+                    fs.Close();
                 }
                 else
                 {
